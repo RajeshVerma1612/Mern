@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "dev": "nodemon backend/index.js",
-    "start":"node backend/index.js"
+    "start": "node backend/index.js"
   },
   "repository": {
     "type": "git",
@@ -19,7 +19,9 @@
   },
   "homepage": "https://github.com/RajeshVerma1612/Mern#readme",
   "dependencies": {
+    "dotenv": "^16.4.5",
     "express": "^4.19.2",
+    "mongoose": "^8.2.4",
     "nodemon": "^3.1.0"
   }
 }
