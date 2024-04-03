@@ -8,7 +8,7 @@ function Header() {
     const path=useLocation().pathname;
     return (
         <Navbar className='border-b-2'>
-            <Navbar.Toggle/>
+            <Navbar.Toggle />
             <Link to='/' className='self-center whitespace-nowrap text-lg sm:text-xl font-semibold dark:text-white' ><span className='px-2 py-1 bg-gradient-to-r from-blue-200 via-cyan-500 to-blue-700 text-white rounded-md'>Jeca</span>Cracker</Link>
             <form>
                 <TextInput type='text' placeholder='Search...' rightIcon={AiOutlineSearch} className='hidden md:inline' />
@@ -29,11 +29,11 @@ function Header() {
                     <Navbar.Link active={path === '/' }as={'div'} >
                         <Link to='/'>Home</Link>
                     </Navbar.Link>
-                    <Navbar.Link active={path === '/about'} as={'div'} >
-                        <Link to='/about'>About</Link>
+                    <Navbar.Link active={path === '/blogs'} as={'div'} >
+                        <Link to='/blogs'>Blogs</Link>
                     </Navbar.Link>
-                    <Navbar.Link active={path === '/projects'} as={'div'} >
-                        <Link to='/projects'>Projects</Link>
+                    <Navbar.Link active={path === '/rankers'} as={'div'} >
+                        <Link to='/rankers'>Rankers</Link>
                     </Navbar.Link>
             </Navbar.Collapse>
         </Navbar>
