@@ -42,8 +42,8 @@ function SignIn() {
   }
 
   return (
-    <div className='min-h-screen mt-12' > 
-      <div className='flex p-6 max-w-3xl mx-auto flex-col md:flex-row md:items-center gap-5'>
+    <div className='h-auto my-20' > 
+      <div className='flex p-6  max-w-3xl mx-auto flex-col md:flex-row md:items-center gap-5'>
         {/* left  */}
         <div className='flex-1 flex flex-col items-center justify-center'>
           <Link to='/' className=' text-4xl font-bold dark:text-white' ><span className='px-2 py-1 bg-gradient-to-r from-blue-200 via-cyan-500 to-blue-700 text-white rounded-md'>Jeca</span>Cracker</Link>

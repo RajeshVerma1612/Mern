@@ -45,7 +45,7 @@ function SignUp() {
   }
 
   return (
-    <div className='min-h-screen mt-12' >
+    <div className='h-auto my-20' >
       <div className='flex p-6 max-w-3xl mx-auto flex-col md:flex-row md:items-center gap-5'>
         {/* left  */}
         <div className='flex-1 flex flex-col items-center justify-center'>
