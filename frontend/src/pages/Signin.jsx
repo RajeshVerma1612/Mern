@@ -42,7 +42,7 @@ function SignIn() {
   }
 
   return (
-    <div className='min-h-screen mt-12' >
+    <div className='min-h-screen mt-12' > 
       <div className='flex p-6 max-w-3xl mx-auto flex-col md:flex-row md:items-center gap-5'>
         {/* left  */}
         <div className='flex-1 flex flex-col items-center justify-center'>
@@ -54,11 +54,10 @@ function SignIn() {
 
         {/* right  */}
         <div className='flex-1 flex-col'>
-
         <p className='text-sm mb-5 font-semibold '>You can Sign in with your email and password or with Google.</p>
-        <div className='flex-1 p-3 border border-gray-300 rounded'>
+        <div className='flex-1 p-3 border border-gray-300 rounded-md'>
           <form className='flex flex-col gap-4' onSubmit={handleSubmit}>
-            <div className='md:mx-8 md:my-4'>
+            <div className='mx-1 my-2 md:my-4'>
               <Label value='Email Address :' /><TextInput type='email' placeholder='studentname@gmail.com' id='email' onChange={handleChange} />
               {/* <Label value='Mobile Number :'/><TextInput type='tel' placeholder='081 222 2224' maxLength={10} id='phone' required onChange={handleChange}/> */}
               {/* <Label value='Full Name :'/><TextInput type='text' placeholder='Your Name' id='fullname' required onChange={handleChange}/> */}

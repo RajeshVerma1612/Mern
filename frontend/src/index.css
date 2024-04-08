@@ -2,7 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
-.active-link {
+/* .active-link {
     color: dodgerblue;
     background-color:  dodgerblue;
-}
+} */
+body {
+    height: 100vh;
+  }
+  

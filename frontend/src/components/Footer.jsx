@@ -6,7 +6,7 @@ import {BsFacebook,BsLinkedin,BsWhatsapp,BsTelegram,BsYoutube} from 'react-icons
 
 function FooterCom() {
     return (
-        <Footer container className='border'>
+        <Footer container className=''>
             <div className='w-full max-w-7xl mx-auto'>
                 <div className='grid w-full justify-between sm:flex sm:grid-cols-1'>
                     <div className='mt-5'>
