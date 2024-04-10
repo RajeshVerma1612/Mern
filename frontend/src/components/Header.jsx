@@ -35,11 +35,11 @@ function Header() {
                             <span className='block text-sm'>@{currentUser.username}</span>
                             <span className='block text-sm font-medium truncate'>{currentUser.email}</span>
                         </Dropdown.Header>
-                        <Link to={'/dashboard?tab=profile'}>
-                            <Dropdown.Item>Profile</Dropdown.Item>
+                        <Link to={'/dashboard?tab=dashboard'}>
+                            <Dropdown.Item>Dashboard</Dropdown.Item>
                         </Link>
                         <Dropdown.Divider/> 
-                        <Dropdown.Item>Sign Out <FaSignOutAlt className='hidden sm:inline ml-2' /></Dropdown.Item>                    
+                        <Dropdown.Item>Sign Out</Dropdown.Item>                    
                     </Dropdown>
                 ):
                 (

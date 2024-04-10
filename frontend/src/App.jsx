@@ -20,9 +20,9 @@ function App() {
         <Route path='/signin'element={<SignIn/>} />
         <Route path='/signup'element={<SignUp/>} />
         <Route path='/rankers'element={<Rankers/>} />
-        <Route element={<PrivateRoute/>}>
+        {/* <Route element={<PrivateRoute/>}> */}
           <Route path='/dashboard'element={<Dashboard/>} />
-        </Route>
+        {/* </Route> */}
       </Routes>
       <Footer/>
     </BrowserRouter>
