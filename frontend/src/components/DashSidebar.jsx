@@ -1,11 +1,12 @@
-import {Sidebar} from 'flowbite-react'
+import {Button, Sidebar} from 'flowbite-react'
 import { HiArrowSmRight, HiUser } from "react-icons/hi";
 import { BsFillClipboard2MinusFill,BsCheck2Circle,BsStars} from "react-icons/bs";
 import { BiSolidDashboard } from "react-icons/bi";
-import { PiExamFill } from "react-icons/pi";
+import { PiExamFill,PiSignOutBold,PiClockCounterClockwiseBold } from "react-icons/pi";
 import { FaNewspaper } from "react-icons/fa6";
-import { PiClockCounterClockwiseBold } from "react-icons/pi";
 import { MdRestorePage } from "react-icons/md";
+import { RiMenuUnfoldLine } from "react-icons/ri";
+
 
 
 
@@ -24,49 +25,56 @@ export default function DashSidebar() {
     }, [location.search]);
   
   return (
-    <Sidebar className='w-full md:w-60'>
-        <Sidebar.Items>
-            <Sidebar.ItemGroup>
-                <Link to='/dashboard?tab=profile'>
-                <Sidebar.Item active={tab==='profile'} icon={HiUser} label={'user'} labelColor='dark'>
-                Profile </Sidebar.Item></Link>
-                <Link to='/dashboard?tab=dashboard'>
-                <Sidebar.Item active={tab==='dashboard'} icon={BiSolidDashboard}>
-                Dashboard</Sidebar.Item></Link>
-            </Sidebar.ItemGroup>
-            <Sidebar.ItemGroup>
-               
-                <Link to='/dashboard?tab=test-series'>
-                <Sidebar.Item active={tab==='test-series'} icon={BsFillClipboard2MinusFill}>
-                Test Series</Sidebar.Item></Link>
+    <Sidebar className={`w-auto md:60 flex`}>
+        <Sidebar.Items> 
+            <Sidebar.ItemGroup className='w-auto flex md:flex-col items-baseline md:items-start overflow-auto md:overflow-hidden ' >
+                <Link to='/dashboard?tab=profile' >
+                <Sidebar.Item active={tab==='profile'} icon={HiUser} labelColor='dark' as='div' label={'user'}>
+                Profile
+                </Sidebar.Item></Link>
+                <Link to='/dashboard?tab=dashboard' >
+                <Sidebar.Item active={tab==='dashboard'} icon={BiSolidDashboard} as='div'>
+                Dashboard
+                </Sidebar.Item></Link>
+                
+                <Link to='/dashboard?tab=test-series' >
+                <Sidebar.Item active={tab==='test-series'} icon={BsFillClipboard2MinusFill} as='div'>
+                Test Series
+                </Sidebar.Item></Link>
 
-                <Link to='/dashboard?tab=previous-year'>
-                <Sidebar.Item active={tab==='previous-year'} icon={MdRestorePage}>
-                Previous Year Papers</Sidebar.Item></Link>
+                <Link to='/dashboard?tab=previous-year' >
+                <Sidebar.Item active={tab==='previous-year'} icon={MdRestorePage} as='div'>
+                Previous Year Papers
+                </Sidebar.Item></Link>
 
                 <Link to='/dashboard?tab=resources'>
-                <Sidebar.Item active={tab==='resources'} icon={FaNewspaper}>
-                Resources</Sidebar.Item></Link>
+                <Sidebar.Item active={tab==='resources'} icon={FaNewspaper}  as='div'>
+                Study Resources
+                </Sidebar.Item></Link>
               
-                <Link to='/dashboard?tab=free-quizes'>
-                <Sidebar.Item active={tab==='free-quizes'} icon={PiExamFill}>
-                Free Quizzes</Sidebar.Item></Link>
+                <Link to='/dashboard?tab=free-quizes' >
+                <Sidebar.Item active={tab==='free-quizes'} icon={PiExamFill} as='div'>
+                Free Quizzes
+                </Sidebar.Item></Link>
 
-                <Link to='/dashboard?tab=practice'>
-                <Sidebar.Item active={tab==='practice'} icon={PiClockCounterClockwiseBold}>
-                Practice</Sidebar.Item></Link>
+                <Link to='/dashboard?tab=practice' >
+                <Sidebar.Item active={tab==='practice'} icon={PiClockCounterClockwiseBold} as='div'>
+                Practice
+                </Sidebar.Item></Link>
 
-                <Link to='/dashboard?tab=attempted-tests'>
-                <Sidebar.Item active={tab==='attempted-tests'} icon={BsCheck2Circle}>
-                Attempted Tests</Sidebar.Item></Link>
-            </Sidebar.ItemGroup>
-            <Sidebar.ItemGroup>
+                <Link to='/dashboard?tab=attempted-tests' >
+                <Sidebar.Item active={tab==='attempted-tests'} icon={BsCheck2Circle} as='div'>
+                Attempted Tests
+                </Sidebar.Item></Link>
+
                 <Link to='/dashboard?tab=premium'>
-                <Sidebar.Item active={tab==='premium'} icon={BsStars} label={'Pre'}>
-                Premium</Sidebar.Item></Link>
+                <Sidebar.Item active={tab==='premium'} icon={BsStars}  as='div' label={'Pre'} labelColor='blue'>
+                Premium
+                </Sidebar.Item></Link>
 
                 <Sidebar.Item  icon={HiArrowSmRight} className='cursor-pointer' >
-                Sign Out</Sidebar.Item>
+                Sign Out
+                </Sidebar.Item>
             </Sidebar.ItemGroup>
         </Sidebar.Items>
     </Sidebar>
