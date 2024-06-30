@@ -25,9 +25,9 @@ export default function DashSidebar() {
     }, [location.search]);
   
   return (
-    <Sidebar className={`w-auto md:60 flex`}>
+    <Sidebar className={`w-auto flex lg:w-60 `}>
         <Sidebar.Items> 
-            <Sidebar.ItemGroup className='w-auto flex md:flex-col items-baseline md:items-start overflow-auto md:overflow-hidden ' >
+            <Sidebar.ItemGroup className='w-full flex  items-baseline  overflow-auto scrollbar-hidden lg:overflow-hidden lg:flex-col lg:items-start' >
                 <Link to='/dashboard?tab=profile' >
                 <Sidebar.Item active={tab==='profile'} icon={HiUser} labelColor='dark' as='div' label={'user'}>
                 Profile
@@ -36,7 +36,7 @@ export default function DashSidebar() {
                 <Sidebar.Item active={tab==='dashboard'} icon={BiSolidDashboard} as='div'>
                 Dashboard
                 </Sidebar.Item></Link>
-                
+
                 <Link to='/dashboard?tab=test-series' >
                 <Sidebar.Item active={tab==='test-series'} icon={BsFillClipboard2MinusFill} as='div'>
                 Test Series
