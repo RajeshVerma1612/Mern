@@ -1,4 +1,4 @@
-import {Button, Sidebar} from 'flowbite-react'
+import {Button, Sidebar, SidebarItemGroup} from 'flowbite-react'
 import { HiArrowSmRight, HiUser } from "react-icons/hi";
 import { BsFillClipboard2MinusFill,BsCheck2Circle,BsStars} from "react-icons/bs";
 import { BiSolidDashboard } from "react-icons/bi";
@@ -8,7 +8,7 @@ import { MdRestorePage } from "react-icons/md";
 import { RiMenuUnfoldLine } from "react-icons/ri";
 
 
-
+import {  HiChartPie, HiInbox, HiShoppingBag, HiTable, HiViewBoards } from "react-icons/hi";
 
 import { useEffect, useState } from 'react';
 import { useLocation,Link } from 'react-router-dom';
@@ -25,50 +25,50 @@ export default function DashSidebar() {
     }, [location.search]);
   
   return (
-    <Sidebar className={`w-auto flex lg:w-60 `}>
+    <Sidebar className={`w-auto flex lg:w-60`}>
         <Sidebar.Items> 
-            <Sidebar.ItemGroup className='w-full flex  items-baseline  overflow-auto scrollbar-hidden lg:overflow-hidden lg:flex-col lg:items-start' >
-                <Link to='/dashboard?tab=profile' >
-                <Sidebar.Item active={tab==='profile'} icon={HiUser} labelColor='dark' as='div' label={'user'}>
+            <Sidebar.ItemGroup className='w-full md:block flex items-baseline  overflow-auto scrollbar-hidden lg:overflow-hidden lg:flex-col lg:items-start' >
+                <Link to='/dashboard?tab=profile'>
+                <Sidebar.Item className="my-2" active={tab==='profile'} icon={HiUser} labelColor='dark' as='div' label={'user'}>
                 Profile
                 </Sidebar.Item></Link>
+
                 <Link to='/dashboard?tab=dashboard' >
-                <Sidebar.Item active={tab==='dashboard'} icon={BiSolidDashboard} as='div'>
+                <Sidebar.Item className="my-2" active={tab==='dashboard'} icon={BiSolidDashboard} as='div'>
                 Dashboard
                 </Sidebar.Item></Link>
-
                 <Link to='/dashboard?tab=test-series' >
-                <Sidebar.Item active={tab==='test-series'} icon={BsFillClipboard2MinusFill} as='div'>
+                <Sidebar.Item className="my-2" active={tab==='test-series'} icon={BsFillClipboard2MinusFill} as='div' >
                 Test Series
                 </Sidebar.Item></Link>
 
                 <Link to='/dashboard?tab=previous-year' >
-                <Sidebar.Item active={tab==='previous-year'} icon={MdRestorePage} as='div'>
+                <Sidebar.Item className="my-2" active={tab==='previous-year'} icon={MdRestorePage} as='div'>
                 Previous Year Papers
                 </Sidebar.Item></Link>
 
                 <Link to='/dashboard?tab=resources'>
-                <Sidebar.Item active={tab==='resources'} icon={FaNewspaper}  as='div'>
+                <Sidebar.Item className="my-2" active={tab==='resources'} icon={FaNewspaper}  as='div'>
                 Study Resources
                 </Sidebar.Item></Link>
               
                 <Link to='/dashboard?tab=free-quizes' >
-                <Sidebar.Item active={tab==='free-quizes'} icon={PiExamFill} as='div'>
+                <Sidebar.Item className="my-2" active={tab==='free-quizes'} icon={PiExamFill} as='div'>
                 Free Quizzes
                 </Sidebar.Item></Link>
 
                 <Link to='/dashboard?tab=practice' >
-                <Sidebar.Item active={tab==='practice'} icon={PiClockCounterClockwiseBold} as='div'>
+                <Sidebar.Item className="my-2" active={tab==='practice'} icon={PiClockCounterClockwiseBold} as='div'>
                 Practice
                 </Sidebar.Item></Link>
 
                 <Link to='/dashboard?tab=attempted-tests' >
-                <Sidebar.Item active={tab==='attempted-tests'} icon={BsCheck2Circle} as='div'>
+                <Sidebar.Item className="my-2" active={tab==='attempted-tests'} icon={BsCheck2Circle} as='div'>
                 Attempted Tests
                 </Sidebar.Item></Link>
 
                 <Link to='/dashboard?tab=premium'>
-                <Sidebar.Item active={tab==='premium'} icon={BsStars}  as='div' label={'Pre'} labelColor='blue'>
+                <Sidebar.Item className="my-2" active={tab==='premium'} icon={BsStars}  as='div' label={'Pre'} labelColor='blue'>
                 Premium
                 </Sidebar.Item></Link>
 

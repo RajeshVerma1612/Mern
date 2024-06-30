@@ -38,7 +38,7 @@ function Header() {
                         <Link to={'/dashboard?tab=dashboard'}>
                             <Dropdown.Item>Dashboard</Dropdown.Item>
                         </Link>
-                        <Dropdown.Divider/> 
+                        <Dropdown.Divider/>  
                         <Dropdown.Item>Sign Out</Dropdown.Item>                    
                     </Dropdown>
                 ):
