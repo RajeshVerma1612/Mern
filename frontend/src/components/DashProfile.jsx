@@ -3,6 +3,7 @@ import { useRef, useState } from "react"
 import { useEffect } from "react"
 import { getStorage, uploadBytesResumable, ref, getDownloadURL } from "firebase/storage"
 import { app } from "../firebase"
+import { Button, TextInput } from "flowbite-react"
 
 export default function DashProfile() {
   const fileRef = useRef(null)
@@ -50,7 +51,9 @@ export default function DashProfile() {
       <h1 className='text-3xl font-semibold text-center my-7'>Profile</h1>
       <form className="flex flex-col gap-4 ">
         <input onChange={(e) => setFile(e.target.files[0])} type="file" ref={fileRef} accept="image/*" hidden />
-        <img onClick={() => fileRef.current.click()} src={formData.profilePicture || currentUser.profilePicture} alt="profile" className="rounded-full h-24 w-24 object-cover cursor-pointer self-center my-3 border-2 border-blue-200" />
+        <div className="w-32 h-32 self-center rounded-full overflow-hidden cursor-pointer my-2">
+        <img onClick={() => fileRef.current.click()} src={formData.profilePicture || currentUser.profilePicture} alt="profile" className="rounded-full w-full h-full object-cover cursor-pointer self-center border-4 border-blue-200" />
+        </div>
         <p className="text-sm self-center">
           {fileUploadError ? (
             <span className="text-orange-600">Error image upload (size must be less than 2MB)</span>
@@ -63,12 +66,12 @@ export default function DashProfile() {
           )}
         </p>
 
-        <input type="text" placeholder="username" id="username" className="bordet p-3 rounded-lg" />
-        <input type="text" placeholder="email" id="email" className="bordet p-3 rounded-lg" />
-        <input type="text" placeholder="password" id="password" className="bordet p-3 rounded-lg" />
-        {/* <input type="text" placeholder="phone number" id="phonenumber" className="bordet p-3 rounded-lg"/> */}
-        {/* <input type="text" placeholder="year" id="year" className="bordet p-3 rounded-lg"/> */}
-        <button className="bg-slate-700 text-white rounded-lg p-3 hover:opacity-95 disabled:opacity-80">UPDATE</button>
+        <TextInput type="text" placeholder="username" id="username" defaultValue={currentUser.username} />
+        <TextInput type="text" placeholder="email" id="email" defaultValue={currentUser.email} />
+        <TextInput type="password" placeholder="password" id="password" />
+        {/* <TextInput type="text" placeholder="phone number" id="phonenumber" defaultValue={currentUser.password} /> */}
+        {/* <TextInput type="text" placeholder="year" id="year" defaultValue={currentUser.password} /> */}
+        <Button type="submit" gradientDuoTone='purpleToBlue' outline>UPDATE</Button>
       </form>
       <div className="mt-5 flex justify-between">
         <span className="text-orange-500 cursor-pointer">Delete Account</span>
