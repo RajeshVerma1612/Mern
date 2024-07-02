@@ -33,7 +33,7 @@ export default function DashSidebar() {
                 Profile
                 </Sidebar.Item></Link>
 
-                <Link to='/dashboard?tab=dashboard' >
+                <Link to='/dashboard?tab=dashboard'>
                 <Sidebar.Item className="my-2" active={tab==='dashboard'} icon={BiSolidDashboard} as='div'>
                 Dashboard
                 </Sidebar.Item></Link>
