@@ -14,12 +14,12 @@ export default function Dashboard() {
     }
   }, [location.search]);
   return (
-    <div className='min-h-screen flex flex-col lg:flex-row'>
+    <div className='min-h-screen flex flex-col md:flex-row'>
       <div className='w-auto'>
         {/* Sidebar*/}
         <DashSidebar/>
       </div>
-      <div className='w-full '>
+      <div className='w-full'>
       { tab==='profile' && <DashProfile/>}
     
       </div>
