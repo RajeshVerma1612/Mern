@@ -5,7 +5,7 @@ import { FaMoon,FaSignOutAlt} from 'react-icons/fa';
 import { MdLightMode } from "react-icons/md";
 import {useSelector,useDispatch} from 'react-redux';
 import { toggleTheme } from '../redux/theme/themeSlice';
-
+import { signoutSuccess } from '../redux/user/userSlice';
 
 
 
@@ -14,6 +14,21 @@ function Header() {
     const dispatch=useDispatch();
     const {currentUser}=useSelector(state=> state.user);
     const {theme}=useSelector(state=> state.theme);
+    const handleSignout= async()=>{
+        try {
+          const res= await fetch(`/api/user/signout`,{
+            method:'POST',
+        });
+        const data=res.json();
+        if(!res.ok){
+          console.log(data.message);
+        }else{
+          dispatch(signoutSuccess());
+        }
+        } catch (error) {
+          console.log(error.message);
+        }
+      }
     return (
         <Navbar className='border-b-2'>
             <Navbar.Toggle />
@@ -39,7 +54,7 @@ function Header() {
                             <Dropdown.Item>Dashboard</Dropdown.Item>
                         </Link>
                         <Dropdown.Divider/>  
-                        <Dropdown.Item>Sign Out</Dropdown.Item>                    
+                        <Dropdown.Item onClick={handleSignout}>Sign Out</Dropdown.Item>                    
                     </Dropdown>
                 ):
                 (

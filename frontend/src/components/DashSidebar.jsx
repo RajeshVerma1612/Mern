@@ -6,16 +6,19 @@ import { PiExamFill,PiSignOutBold,PiClockCounterClockwiseBold } from "react-icon
 import { FaNewspaper } from "react-icons/fa6";
 import { MdRestorePage } from "react-icons/md";
 import { RiMenuUnfoldLine } from "react-icons/ri";
+import { useDispatch } from 'react-redux';
 
 
 import {  HiChartPie, HiInbox, HiShoppingBag, HiTable, HiViewBoards } from "react-icons/hi";
 
 import { useEffect, useState } from 'react';
 import { useLocation,Link } from 'react-router-dom';
+import { signoutSuccess } from '../redux/user/userSlice';
 
 export default function DashSidebar() {
     const location = useLocation();
     const [tab, setTab] = useState('');
+    const dispatch = useDispatch();
     useEffect(() => {
       const urlPrams = new URLSearchParams(location.search)
       const tabFormUrl = urlPrams.get('tab');
@@ -23,7 +26,22 @@ export default function DashSidebar() {
         setTab(tabFormUrl);
       }
     }, [location.search]);
-  
+    
+    const handleSignout= async()=>{
+      try {
+        const res= await fetch(`/api/user/signout`,{
+          method:'POST',
+      });
+      const data=res.json();
+      if(!res.ok){
+        console.log(data.message);
+      }else{
+        dispatch(signoutSuccess());
+      }
+      } catch (error) {
+        console.log(error.message);
+      }
+    }
   return (
     <Sidebar className={`w-auto flex lg:w-60`}>
         <Sidebar.Items> 
@@ -72,7 +90,7 @@ export default function DashSidebar() {
                 Premium
                 </Sidebar.Item></Link>
 
-                <Sidebar.Item  icon={HiArrowSmRight} className='cursor-pointer' >
+                <Sidebar.Item  icon={HiArrowSmRight} className='cursor-pointer' onClick={handleSignout} >
                 Sign Out
                 </Sidebar.Item>
             </Sidebar.ItemGroup>

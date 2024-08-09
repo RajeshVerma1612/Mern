@@ -59,9 +59,9 @@ function SignIn() {
             <form className="flex flex-col gap-4" onSubmit={handleSubmit}>
               <div className="mx-1 my-2 md:my-4">
                 <Label value="Email Address :" />
-                <TextInput type="email" placeholder="studentname@gmail.com" id="email" onChange={handleChange} />
+                <TextInput type="email" placeholder="studentname@gmail.com" id="email" onChange={handleChange} autoComplete='email'/>
                 <Label value="Password :" />
-                <TextInput type="password" placeholder="Password" id="password" onChange={handleChange} />
+                <TextInput type="password" placeholder="Password" id="password" onChange={handleChange} autoComplete='current-password' />
               </div>
               <Button gradientDuoTone="purpleToBlue" type="submit" disabled={loading}>
                 {

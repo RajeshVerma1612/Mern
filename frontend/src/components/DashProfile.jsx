@@ -6,7 +6,7 @@ import { app } from "../firebase";
 import { Alert, Button, Modal, TextInput } from "flowbite-react";
 import { CircularProgressbar } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
-import { updateFailure, updateStart, updateSuccess,deleteUserFailure,deleteUserSuccess, deleteUserStart } from "../redux/user/userSlice";
+import { updateFailure, updateStart, updateSuccess,deleteUserFailure,deleteUserSuccess, deleteUserStart, signoutSuccess } from "../redux/user/userSlice";
 import { useDispatch } from "react-redux";
 import {HiOutlineExclamationCircle} from 'react-icons/hi';
 
@@ -142,8 +142,6 @@ export default function DashProfile() {
     }
   }, [imageUploadError]);
 
-
-  console.log("currentUser:", currentUser);
   const handleDeleteUser=async ()=>{
     setShowModel(false);
     try {
@@ -164,6 +162,21 @@ export default function DashProfile() {
     }
   };
 
+  const handleSignout= async()=>{
+    try {
+      const res= await fetch(`/api/user/signout`,{
+        method:'POST',
+    });
+    const data=res.json();
+    if(!res.ok){
+      console.log(data.message);
+    }else{
+      dispatch(signoutSuccess());
+    }
+    } catch (error) {
+      console.log(error.message);
+    }
+  }
   return (
     <div className="p-4 max-w-lg mx-auto w-full">
       <h1 className="text-3xl font-semibold text-center my-7">Profile</h1>
@@ -200,7 +213,7 @@ export default function DashProfile() {
       </form>
       <div className="mt-5 flex justify-between">
         <span onClick={()=>setShowModel(true)} className="text-orange-500 cursor-pointer">Delete Account</span>
-        <span className="text-orange-500 cursor-pointer">Sign Out</span>
+        <span onClick={handleSignout} className="text-orange-500 cursor-pointer">Sign Out</span>
       </div>
       {updateUserSuccess && (<Alert color='success' className="mt-5">{updateUserSuccess}</Alert>)}
       {updateUserError && (<Alert color='failure' className="mt-5">{updateUserError}</Alert>)}
