@@ -226,7 +226,7 @@ export default function DashProfile() {
                   <h3 className="mb-5 text-lg text-gray-400 dark:text-gray-200 ">Are you sure you want to delete your account?</h3>
                   <div className="flex justify-center gap-8">
                   <Button color='failure' onClick={handleDeleteUser}>Yes I'am sure</Button>
-                  <Button color='gray' onClick={handleDeleteUser}>No, Cancel</Button>
+                  <Button color='gray'  onClick={() => setShowModel(false)}>No, Cancel</Button>
                   </div>
               </div>
           </Modal.Body>
